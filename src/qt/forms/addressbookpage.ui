@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AddressBookPage</class>
+ <widget class="QWidget" name="AddressBookPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>776</width>
+    <height>380</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Address Book</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#AddressBookPage{Background: #191616; color: #ffffff; font-family: 'pt mono';}
+QLabel{ color: #ffffff; font-family: 'pt mono'; font-size: 13px;}
+QPushButton{background: #353535; color: #ffffff; width: 100px; height: 30px; border: 1px solid transparent; border-radius: 3px;}
+QPushButton::hover{background: #454545;}
+QPushButton::pressed{background: #353535;}
+
+QTableView{ border: 1px solid #232629; gridline-color: #31363b; background-color: transparent; }
+
+
+QTableView, QHeaderView{  border-radius: 0px; }
+
+QTableView::item:pressed, QListView::item:pressed, QTreeView::item:pressed { background: #18465d; color: #eff0f1; }
+
+QTableView::item:selected:active, QTreeView::item:selected:active, QListView::item:selected:active  { background: #287399;  color: #eff0f1; }
+
+
+QHeaderView { background-color: #31363b; border: 1px transparent; border-radius: 0px; margin: 0px; padding: 0px; }
+
+QHeaderView::section  { background-color: #31363b; color: #eff0f1; padding: 5px; border: 1px solid #76797C; border-radius: 0px; text-align: center; }
+
+QHeaderView::section::vertical::first, QHeaderView::section::vertical::only-one
+{ border-top: 1px solid #76797C; }
+
+QHeaderView::section::vertical
+{    border-top: transparent; }
+
+QHeaderView::section::horizontal::first, QHeaderView::section::horizontal::only-one
+{ border-left: 1px solid #76797C; }
+
+QHeaderView::section::horizontal
+{ border-left: transparent; }
+
+QHeaderView::section:checked
+ { color: white;  background-color: #334e5e;  }
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="labelExplanation">
+     <property name="text">
+      <string>These are your ForgeNet addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</string>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::PlainText</enum>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTableView" name="tableView">
+     <property name="contextMenuPolicy">
+      <enum>Qt::CustomContextMenu</enum>
+     </property>
+     <property name="toolTip">
+      <string>Double-click to edit address or label</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="tabKeyNavigation">
+      <bool>false</bool>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>false</bool>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="sortingEnabled">
+      <bool>true</bool>
+     </property>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="newAddressButton">
+       <property name="toolTip">
+        <string>Create a new address</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>&amp;New Address</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../bitcoin.qrc">
+         <normaloff>:/n_icons/res/new.png</normaloff>:/n_icons/res/new.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="copyToClipboard">
+       <property name="toolTip">
+        <string>Copy the currently selected address to the system clipboard</string>
+       </property>
+       <property name="text">
+        <string>&amp;Copy Address</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../bitcoin.qrc">
+         <normaloff>:/n_icons/res/copy.png</normaloff>:/n_icons/res/copy.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="showQRCode">
+       <property name="text">
+        <string>Show &amp;QR Code</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../bitcoin.qrc">
+         <normaloff>:/n_icons/res/qrcode.png</normaloff>:/n_icons/res/qrcode.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="signMessage">
+       <property name="toolTip">
+        <string>Sign a message to prove you own a Forge address</string>
+       </property>
+       <property name="text">
+        <string>Sign &amp;Message</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../bitcoin.qrc">
+         <normaloff>:/n_icons/res/sign.png</normaloff>:/n_icons/res/sign.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="verifyMessage">
+       <property name="toolTip">
+        <string>Verify a message to ensure it was signed with a specified Forge address</string>
+       </property>
+       <property name="text">
+        <string>&amp;Verify Message</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../bitcoin.qrc">
+         <normaloff>:/n_icons/res/verify.png</normaloff>:/n_icons/res/verify.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="deleteButton">
+       <property name="toolTip">
+        <string>Delete the currently selected address from the list</string>
+       </property>
+       <property name="text">
+        <string>&amp;Delete</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../bitcoin.qrc">
+         <normaloff>:/n_icons/res/del.png</normaloff>:/n_icons/res/del.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QDialogButtonBox" name="buttonBox">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Ok</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../bitcoin.qrc"/>
+ </resources>
+ <connections/>
+</ui>
